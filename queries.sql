@@ -1,0 +1,11 @@
+SELECT * FROM malaria LIMIT 10;
+SELECT COUNT(*) FROM malaria;
+SELECT COUNT(DISTINCT c1) FROM malaria;
+SELECT c3, c4 FROM malaria WHERE c1 = 'Nigeria' ORDER BY c3;
+SELECT c1, c4 FROM malaria WHERE c3 = 2020 ORDER BY c4 DESC LIMIT 10;
+SELECT c1, ROUND(AVG(c4), 2) AS avg_cases FROM malaria GROUP BY c1 ORDER BY avg_cases DESC LIMIT 10;
+SELECT c1, ROUND(AVG(c4), 2) AS avg_cases FROM malaria GROUP BY c1 HAVING AVG(c4) > 100;
+SELECT c3, c4 FROM malaria WHERE c1 = 'Nigeria' AND c4 > (SELECT AVG(c4) FROM malaria);
+SELECT c3, c4 FROM malaria WHERE c1 = 'Nigeria' ORDER BY c4 ASC LIMIT 1;
+SELECT c3, c4 FROM malaria WHERE c1 = 'Nigeria' ORDER BY c4 DESC LIMIT 1;
+SELECT COUNT(*) FROM malaria WHERE c4 IS NULL;
